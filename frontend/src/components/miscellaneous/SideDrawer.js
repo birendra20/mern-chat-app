@@ -7,6 +7,7 @@ import { useToast } from "@chakra-ui/toast";
 import {
   Avatar,
   Drawer,
+  DrawerBody,
   DrawerContent,
   DrawerHeader,
   DrawerOverlay,
@@ -16,11 +17,9 @@ import {
   MenuDivider,
   MenuItem,
   MenuList,
-  Spinner,
-  DrawerBody,
 } from "@chakra-ui/react";
 import { BellIcon, ChevronDownIcon, ChevronRightIcon } from "@chakra-ui/icons";
-import { ChatState } from "../../Context/ChatProvider";
+import { ChatState } from "../Context/ChatProvider";
 import { useHistory } from "react-router-dom";
 import ProfileModal from "./ProfileModal";
 import axios from "axios";
@@ -167,6 +166,7 @@ const SideDrawer = () => {
       </Box>
       <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay />
+
         <DrawerContent>
           <DrawerHeader borderBottomWidth="1px">Search Users</DrawerHeader>
           <DrawerBody>
@@ -190,7 +190,6 @@ const SideDrawer = () => {
                 />
               ))
             )}
-            {loadingChat && <Spinner ml="auto" d="flex" />}
           </DrawerBody>
         </DrawerContent>
       </Drawer>
